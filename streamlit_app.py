@@ -104,4 +104,4 @@ if dados is not None:
 
     st.write("Previsão:", forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail())
 else:
-st.info("Aguardando upload do arquivo...")
+    st.info("Aguardando upload do arquivo...")
