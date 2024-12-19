@@ -28,7 +28,7 @@ st.title("Análise de Séries Temporais")
 st.sidebar.header("Configurações")
 
 # Upload do arquivo
-dados = st.file_uploader("Faça o upload do arquivo CSV", type=["csv"],accept_multiple_files=True)
+dados = st.file_uploader("Faça o upload do arquivo CSV", type=["csv","txt"])
 
 if dados is not None:
     # Parâmetros de configuração do upload
