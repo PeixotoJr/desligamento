@@ -10,6 +10,17 @@ from statsmodels.tsa.seasonal import seasonal_decompose
 from prophet import Prophet
 import matplotlib.pyplot as plt
 
+
+def formatar_colunas(colunas):
+    import unicodedata
+    return [
+        ''.join(
+            c for c in unicodedata.normalize('NFKD', coluna.lower())
+            if c.isalnum() or c == '_'
+        ).replace(' ', '_')
+        for coluna in colunas
+    ]
+
 # Configuração inicial do Streamlit
 st.title("Análise de Séries Temporais")
 st.sidebar.header("Configurações")
@@ -26,15 +37,7 @@ if dados is not None:
     df = pd.read_csv(dados, sep=separador, decimal=decimal)
 
     # Função para formatar colunas
-def formatar_colunas(colunas):
-    import unicodedata
-    return [
-        ''.join(
-            c for c in unicodedata.normalize('NFKD', coluna.lower())
-            if c.isalnum() or c == '_'
-        ).replace(' ', '_')
-        for coluna in colunas
-    ]
+
 
 # Renomear colunas
     df.columns = formatar_colunas(df.columns)
@@ -101,4 +104,4 @@ def formatar_colunas(colunas):
 
     st.write("Previsão:", forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail())
 else:
-    st.info("Aguardando upload do arquivo...")
+st.info("Aguardando upload do arquivo...")
