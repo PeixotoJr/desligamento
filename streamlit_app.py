@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 
 
+
 def formatar_colunas(colunas):
     import unicodedata
     return [
