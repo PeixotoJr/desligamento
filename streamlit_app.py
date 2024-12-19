@@ -9,6 +9,7 @@ import pandas as pd
 from statsmodels.tsa.seasonal import seasonal_decompose
 from prophet import Prophet
 import matplotlib.pyplot as plt
+import plotly.express as px
 
 
 def formatar_colunas(colunas):
